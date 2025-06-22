@@ -28,10 +28,33 @@ VALUES
     
 -- © Copyright 2025 Break Into Tech  --
 
-#For this Superstore project, I created a statistic to show the cost sum of a specific merchandise category.
+#For this Superstore project, I created statistics showing a list of inventory, prices, and the cost sum of a specific merchandise category.
 
-SELECT SUM(price), category
---angelia bell
+SELECT item_name, price
 FROM superstore
-WHERE Category='Kitchen Supplies'
+--item name and price
+ORDER BY price
+;
+
+SELECT COUNT(item_name), SUM(price)
+FROM superstore
+--count of items and total price
+;
+
+SELECT category, item_name, price
+FROM superstore
+--list of kitchen supplies
+WHERE category = 'Kitchen Supplies'
+;
+
+SELECT category, item_name, MAX (price)
+FROM superstore
+--max price of kitchen supplies
+WHERE category = 'Kitchen Supplies'
+;
+
+SELECT item_name, stock_quantity
+--angelia bell, number of coffee makers in stock
+FROM superstore
+WHERE item_name = 'Premium Coffee Maker'
 ;
