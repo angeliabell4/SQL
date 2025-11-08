@@ -30,31 +30,43 @@ VALUES
 
 #For this Superstore project, I created statistics showing a list of inventory, prices, and the cost sum of a specific merchandise category.
 
+--angelia bell, order items by price
 SELECT item_name, price
 FROM superstore
---item name and price
 ORDER BY price
 ;
 
-SELECT COUNT(item_name), SUM(price)
+--sum of item prices
+SELECT SUM(price)
 FROM superstore
---count of items and total price
 ;
 
-SELECT category, item_name, price
+--average item prices
+SELECT AVG(price)
 FROM superstore
---list of kitchen supplies
-WHERE category = 'Kitchen Supplies'
 ;
 
-SELECT category, item_name, MAX (price)
+--minimum item price and item    
+SELECT MIN(price), item_name
 FROM superstore
---max price of kitchen supplies
-WHERE category = 'Kitchen Supplies'
 ;
 
-SELECT item_name, stock_quantity
---angelia bell, number of coffee makers in stock
+--maximum item price and name
+SELECT MAX(price), item_name
 FROM superstore
-WHERE item_name = 'Premium Coffee Maker'
+;
+
+--count of categories
+SELECT COUNT(category)
+FROM superstore
+;
+
+--average price for items in Kitchen Supplies
+SELECT AVG(price), category 'Kitchen Supplies'
+FROM superstore
+;
+
+--number of smart foam mattresses
+SELECT SUM(stock_quantity), item_name
+FROM superstore
 ;
